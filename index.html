@@ -3,8 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Read/Watch/Listen</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Read/Watch/Listen</h1>
+        <h3>Recommendations for Books, Music, Movies, and more</h3>
+        <!--Using TasteKid API-->
+    </header>
+    <main>
+        <section id="search">
+            <form id="search-form">
+                <div class="search-field">
+                    <div id="search-input">
+                        <label for="search-term">Enter title or artist/author name:</label>
+                        <input type="text" name="search-term" id="search-term" autofocus>
+                    </div>
+                    <div id="search-type">
+                        <label for="type">Choose type of work:</label>
+                        <select name="type" id="type">
+                            <option value="book">Book</option>
+                            <option value="author">Author</option>
+                            <option value="movie">Movie</option>
+                            <option value="show">TV Show</option>
+                            <option value="band">Band/Musician</option>
+                            <option value="game">Game</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="button-container">
+                    <button type="submit" name="Submit" id="submit">Submit</button>
+                    <button type="button" name="NewSearch" id="new-search">Add New Search</button>
+                    <button type="button" name="Reset" id="reset">Reset</button>
+                </div>
+            </form>
+        </section>
+        <section id="display">
+            
+        </section>
+    </main>
+    <footer>
+        <!--a Jim Strother project-->
+    </footer>
 </body>
 </html>

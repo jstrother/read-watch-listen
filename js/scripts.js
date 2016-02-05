@@ -13,7 +13,6 @@ function makeAjaxRequest(url,params,dataType,type,done) {
 	dataType = (typeof(dataType) == 'undefined') ? 'jsonp' : dataType;
 	type = (typeof(type) == 'undefined') ? 'GET' : type;
 	done = (typeof(done) == 'undefined') ? null : done;
-
 	$.ajax({
     	url:url,
     	data:params,

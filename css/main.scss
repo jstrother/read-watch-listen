@@ -1,0 +1,40 @@
+@import 'bourbon/bourbon';
+@import 'base/base';
+@import 'neat/neat';
+@import 'myVariables';
+@import 'breakpoints';
+
+* {
+    border: $testBorder
+}
+body {
+    @include outer-container;;
+}
+header {
+    margin-top: 2em;
+    text-align: center;
+    h1 {
+        font-size: 3em;
+    }
+    h3 {
+        font-size: 1.5em;
+        margin-top: -1.5em;
+    }
+}
+main {
+    @include outer-container;
+    .search-field {
+        @include shift(3);
+        @include span-columns(6);
+    }
+    #search-input {
+        @include span-columns(6);
+    }
+    #search-type {
+        @include span-columns(6);
+    }
+    #button-container {
+        @include span-columns(8);
+        @include shift(4);
+    }
+}
