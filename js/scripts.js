@@ -17,12 +17,19 @@ $(function() {
 			'jsonp',
 			'GET',
 			function(result) {
-				console.log(result);  //returns the Similar Object
-				console.log(result.Info);  //says that Similar.Info is 'undefined'
-				console.log(result.Results);  //says that Similar.Results is 'undefined'
-				// $('#display').html('<h1>' + similar.info[0].name + '</h1>');
+				console.log(result);
+				var info = result.Similar.Info;
+				var results = result.Similar.Results;
+				console.log(info);
+				console.log(results);
+				$('#display').html('<h1>' + info[0].Name + '</h1>');
 			}
 		);
+	});
+	$('#reset').click(function(e) {
+		e.preventDefault();
+		$('#search-term').val('').focus();
+		$('#type').val('book');
 	});
 });
 

@@ -38,4 +38,11 @@ main {
         @include shift(4);
         text-align: center;
     }
+    #display {
+        @include span-columns(12);
+        h1 {
+            @include shift(0.75);
+            @include span-columns(4);
+        }
+    }
 }

@@ -224,5 +224,20 @@ main {
     text-align: center; }
     main #button-container:last-child {
       margin-right: 0; }
+  main #display {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    main #display:last-child {
+      margin-right: 0; }
+    main #display h1 {
+      margin-left: 6.39735%;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%; }
+      main #display h1:last-child {
+        margin-right: 0; }
 
 /*# sourceMappingURL=main.css.map */
