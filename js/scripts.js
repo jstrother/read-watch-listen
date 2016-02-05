@@ -16,21 +16,15 @@ $(function() {
 			params,
 			'jsonp',
 			'GET',
-			function(similar) {
-				console.log(similar);
-				
+			function(result) {
+				console.log(result);  //returns the Similar Object
+				console.log(result.Info);  //says that Similar.Info is 'undefined'
+				console.log(result.Results);  //says that Similar.Results is 'undefined'
+				// $('#display').html('<h1>' + similar.info[0].name + '</h1>');
 			}
 		);
 	});
 });
-
-// paramaters:
-//     q: search query
-//     type: specifies type of result (book, movie, etc)
-//     info: set to 1 to get more info
-//     limit: max number of returns, default 20
-//     k: 201615-ReadWatc-D43NAQ4H
-//     callback: jsonp
 
 function makeAjaxRequest(url,params,dataType,type,done) {
 	url = (typeof(url) == 'undefined') ? '//www.tastekid.com/api/similar' : url;
