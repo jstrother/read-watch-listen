@@ -219,8 +219,9 @@ main {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 65.88078%;
-    margin-left: 34.11922%; }
+    width: 31.76157%;
+    margin-left: 34.11922%;
+    text-align: center; }
     main #button-container:last-child {
       margin-right: 0; }
 
