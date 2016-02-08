@@ -9,7 +9,7 @@ $(function() {
 			q: searchTerm,
 			type: searchType,
 			info: 1,
-			limit: 25,
+			limit: 21,
 			k: '201615-ReadWatc-D43NAQ4H',
 			callback: 'jsonp'
 		};
@@ -22,6 +22,7 @@ $(function() {
 			function(result) {
 				var info = result.Similar.Info;
 				var results = result.Similar.Results;
+				console.log(results);
 				// show some basic info about what was searched for
 				$('#item-title').text(info[0].Name);
 				$('#item-desc').text(info[0].wTeaser);
@@ -53,41 +54,29 @@ function makeAjaxRequest(url,params,dataType,type,done) {
 	}).done(done);
 }
 function showRecommendations(results) {
-	console.log(results);
 	$.each(results, function(i, item) {
-		console.log(item);
-		console.log('1 i=', i);
+		// clone the similar div
 		var result = $('.similar').clone().removeClass('hidden');
-		convertClassID(result, 'similar', i);
-		console.log('2 i=', i);
-		convertClassID($('button'), 'opener', i);
-		console.log('3 i=', i);
-		dialogBox(i);
+		result.removeClass('similar');
+		// add item title Name
+		var title = result.find('h2');
+		title.text(item.Name);
+		// add item Type
+		var type = result.find('h4');
+		type.text(item.Type);
+		// add title to dialog box
+		var dialogTitle = result.find('.dialog');
+		dialogTitle.attr('title', item.Name).attr('id', 'dialog' + i);
+		
+		var openButton = result.find('.opener');
+		openButton.attr('id', 'opener' + i);
+		// set link to wikipedia page
+		var titleLink = result.find('.similar-wiki');
+		titleLink.attr('href', item.wUrl);
+		// set link to youtube page
+		var ytLink = result.find('.similar-yTpage');
+		ytLink.attr('href', '//www.youtube.com/watch?v=' + item.yID);
 		$('#show-similar').append(result);
 	});
 	$('#display').show();
-}
-function dialogBox(i) {
-	console.log('dialogBox i=', i);
-	$(function() {
-		$('#dialog' + i).dialog({
-			autoOpen: false,
-			show: {
-				effect: "blind",
-				duration: 1000
-			},
-			hide: {
-				effect: "explode",
-				duration: 1000
-			}
-		});
-		$('#opener' + i).click(function() {
-			$('#dialog' + i).dialog('open');
-		});
-	});
-}
-function convertClassID (item, value, i) {
-	console.log('convertClassID i=', i);
-	item.removeClass(value).attr('id', value + i);
-	return item;
 }

@@ -11,7 +11,7 @@
     display: none;
 }
 body {
-    @include outer-container;;
+    @include outer-container;
 }
 header {
     margin-top: 2em;
@@ -60,8 +60,19 @@ main {
                 @include span-columns(4);
                 @include omega(3n);
             }
-            .dialog {
-                display: none;
+        }
+        .dialog {
+            @include outer-container;
+            a:first-of-type {
+                @include span-columns(9);
+            }
+            h5 {
+                @include span-columns(3);
+                @include shift(9);
+                margin-top: -2em;
+            }
+            .similar-yTpage {
+                @include shift(2);
             }
         }
     }
