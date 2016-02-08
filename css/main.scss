@@ -7,6 +7,9 @@
 * {
     border: $testBorder
 }
+.hidden {
+    display: none;
+}
 body {
     @include outer-container;;
 }
@@ -40,9 +43,26 @@ main {
     }
     #display {
         @include span-columns(12);
+        @include outer-container;
+        display: none;
         h1 {
             @include shift(0.75);
             @include span-columns(4);
+            text-align: center;
+        }
+        p {
+            @include span-columns(12);
+        }
+        #show-similar {
+            @include outer-container;
+            text-align: center;
+            .recommendation {
+                @include span-columns(4);
+                @include omega(3n);
+            }
+            .dialog {
+                display: none;
+            }
         }
     }
 }
