@@ -58,9 +58,9 @@ function showRecommendations(results) {
 		console.log(item);
 		console.log('1 i=', i);
 		var result = $('.similar').clone().removeClass('hidden');
-		result.removeClass('similar').attr('id', 'similar' + i);
+		convertClassID(result, 'similar', i);
 		console.log('2 i=', i);
-		$('button').removeClass('opener').attr('id', 'opener' + i);
+		convertClassID($('button'), 'opener', i);
 		console.log('3 i=', i);
 		dialogBox(i);
 		$('#show-similar').append(result);
@@ -68,6 +68,7 @@ function showRecommendations(results) {
 	$('#display').show();
 }
 function dialogBox(i) {
+	console.log('dialogBox i=', i);
 	$(function() {
 		$('#dialog' + i).dialog({
 			autoOpen: false,
@@ -86,6 +87,7 @@ function dialogBox(i) {
 	});
 }
 function convertClassID (item, value, i) {
+	console.log('convertClassID i=', i);
 	item.removeClass(value).attr('id', value + i);
 	return item;
 }
