@@ -39,7 +39,6 @@ $(function() {
 		$('#item-desc').text('');
 		$('#show-similar').html('');
 		$('#display').hide();
-		// finish clearing out search results
 	});
 });
 function makeAjaxRequest(url,params,dataType,type,done) {
