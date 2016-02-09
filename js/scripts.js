@@ -35,9 +35,11 @@ $(function() {
 		e.preventDefault();
 		$('#search-term').val('').focus();
 		$('#type').val('book');
-		$('#display').hide();
 		$('#item-title').text('');
 		$('#item-desc').text('');
+		$('#show-similar').html('');
+		$('#display').hide();
+		// finish clearing out search results
 	});
 });
 function makeAjaxRequest(url,params,dataType,type,done) {
@@ -56,20 +58,14 @@ function makeAjaxRequest(url,params,dataType,type,done) {
 function showRecommendations(results) {
 	$.each(results, function(i, item) {
 		// clone the similar div
-		var result = $('.similar').clone().removeClass('hidden');
-		result.removeClass('similar');
+		var result = $('#template').clone().removeClass('hidden');
+		result.removeAttr('id');
 		// add item title Name
 		var title = result.find('h2');
 		title.text(item.Name);
 		// add item Type
 		var type = result.find('h4');
 		type.text(item.Type);
-		// add title to dialog box
-		var dialogTitle = result.find('.dialog');
-		dialogTitle.attr('title', item.Name).attr('id', 'dialog' + i);
-		
-		var openButton = result.find('.opener');
-		openButton.attr('id', 'opener' + i);
 		// set link to wikipedia page
 		var titleLink = result.find('.similar-wiki');
 		titleLink.attr('href', item.wUrl);

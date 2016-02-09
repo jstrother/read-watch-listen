@@ -164,16 +164,14 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-* {
-  border: 1px solid red; }
-
 .hidden {
   display: none; }
 
 body {
   max-width: 68em;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  background: #cadfd5; }
   body::after {
     clear: both;
     content: "";
@@ -181,7 +179,8 @@ body {
 
 header {
   margin-top: 2em;
-  text-align: center; }
+  text-align: center;
+  background: #8ab9a3; }
   header h1 {
     font-size: 3em; }
   header h3 {
@@ -191,7 +190,8 @@ header {
 main {
   max-width: 68em;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  background: #aaccbc; }
   main::after {
     clear: both;
     content: "";
@@ -248,14 +248,16 @@ main {
       display: block;
       margin-right: 2.35765%;
       width: 31.76157%;
-      text-align: center; }
+      text-align: center;
+      background: #9ac2af; }
       main #display h1:last-child {
         margin-right: 0; }
     main #display p {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 100%; }
+      width: 100%;
+      background: #a2c7b6; }
       main #display p:last-child {
         margin-right: 0; }
     main #display #show-similar {
@@ -293,16 +295,11 @@ main {
         width: 74.41059%; }
         main #display .dialog a:first-of-type:last-child {
           margin-right: 0; }
-      main #display .dialog h5 {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 23.23176%;
-        margin-left: 76.76824%;
-        margin-top: -2em; }
-        main #display .dialog h5:last-child {
-          margin-right: 0; }
-      main #display .dialog .similar-yTpage {
-        margin-left: 17.05961%; }
+    main #display .similar {
+      border: 0.125em solid #8ab9a3; }
+      main #display .similar h2 {
+        background: #9ac2af; }
+      main #display .similar h4 {
+        background: #a2c7b6; }
 
 /*# sourceMappingURL=main.css.map */

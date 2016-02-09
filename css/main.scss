@@ -2,20 +2,18 @@
 @import 'base/base';
 @import 'neat/neat';
 @import 'myVariables';
-@import 'breakpoints';
 
-* {
-    border: $testBorder
-}
 .hidden {
     display: none;
 }
 body {
     @include outer-container;
+    background: $bodyColor;
 }
 header {
     margin-top: 2em;
     text-align: center;
+    background: darken($bodyColor, 20%);
     h1 {
         font-size: 3em;
     }
@@ -26,6 +24,7 @@ header {
 }
 main {
     @include outer-container;
+    background: darken($bodyColor, 10%);
     .search-field {
         @include shift(3);
         @include span-columns(6);
@@ -49,9 +48,11 @@ main {
             @include shift(0.75);
             @include span-columns(4);
             text-align: center;
+            background: darken($bodyColor, 15%);
         }
         p {
             @include span-columns(12);
+            background: darken($bodyColor, 12.5%);
         }
         #show-similar {
             @include outer-container;
@@ -66,13 +67,14 @@ main {
             a:first-of-type {
                 @include span-columns(9);
             }
-            h5 {
-                @include span-columns(3);
-                @include shift(9);
-                margin-top: -2em;
+        }
+        .similar {
+            border: $similarBorder;
+            h2 {
+            background: darken($bodyColor, 15%);
             }
-            .similar-yTpage {
-                @include shift(2);
+            h4 {
+            background: darken($bodyColor, 12.5%);
             }
         }
     }
