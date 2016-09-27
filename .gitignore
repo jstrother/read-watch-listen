@@ -1,4 +1,7 @@
-css/bourbon
-css/base
-css/neat
+*.swp
+node_modules/
+base/
+bourbon/
+neat/
 *.map
+*.log
