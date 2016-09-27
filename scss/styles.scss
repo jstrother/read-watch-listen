@@ -11,7 +11,7 @@ body {
     @include outer-container;
     background: $bodyColor;
     * {
-        padding: 0.5em;
+        padding: 0.25em;
     }
 }
 header {
@@ -38,10 +38,13 @@ main {
     }
     #search-type {
         @include span-columns(6);
+        select {
+            height: 2.25em;
+        }
     }
     #button-container {
         @include span-columns(4);
-        @include shift(4);
+        @include shift(3.5);
         text-align: center;
     }
     #display {

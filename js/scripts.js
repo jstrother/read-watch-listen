@@ -1,9 +1,12 @@
+const $ = require('jquery');
+
 $(function() {
 	$('#submit').click(function(e) {
 		e.preventDefault();
 		// The following take in what you are searching for and what type of work it is.
 		var searchTerm = $('#search-term').val();
 		var searchType = $('#type').val();
+		console.log(searchType);
 		// Passing in the parameters of the api callback
 		var params = {
 			q: searchTerm,
@@ -20,6 +23,7 @@ $(function() {
 			'jsonp',
 			'GET',
 			function(result) {
+				console.log('result:', result);
 				var info = result.Similar.Info;
 				var results = result.Similar.Results;
 				console.log(results);
@@ -27,18 +31,13 @@ $(function() {
 				$('#item-title').text(info[0].Name);
 				$('#item-desc').text(info[0].wTeaser);
 				// time to find something new!
-				showRecommendations(results);
+				showRecommendations('results:', results);
 			}
 		);
 	});
 	$('#reset').click(function(e) {
 		e.preventDefault();
-		$('#search-term').val('').focus();
-		$('#type').val('book');
-		$('#item-title').text('');
-		$('#item-desc').text('');
-		$('#show-similar').html('');
-		$('#display').hide();
+		reset();
 	});
 });
 function makeAjaxRequest(url,params,dataType,type,done) {
@@ -74,4 +73,12 @@ function showRecommendations(results) {
 		$('#show-similar').append(result);
 	});
 	$('#display').show();
+}
+function reset() {
+	$('#search-term').val('').focus();
+	$('#type').val('book');
+	$('#item-title').text('');
+	$('#item-desc').text('');
+	$('#show-similar').html('');
+	$('#display').hide();
 }
