@@ -2,6 +2,7 @@
 @import 'base/base';
 @import 'neat/neat';
 @import 'myVariables';
+@import 'normalize';
 
 .hidden {
     display: none;
@@ -9,6 +10,9 @@
 body {
     @include outer-container;
     background: $bodyColor;
+    * {
+        padding: 0.5em;
+    }
 }
 header {
     margin-top: 2em;

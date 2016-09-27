@@ -1,0 +1,53 @@
+{
+  "name": "read-watch-listen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/scripts.js",
+  "scripts": {
+    "scss": "node-sass --output-stlye compressed scss/styles.scss public/styles.css",
+    "autoprefixer": "postcss -u autoprefixer -r public/styles.css",
+    "browserify": "browserify js/*.js -d -o public/scripts.js",
+    "uglify": "uglifyjs public/scripts.js -m -c -o public/scripts.js",
+    "image": "cp img/*.* public/img/",
+    "font": "cp font/*.* public/font/",
+    "html": "cp *.html public/",
+    "serve": "browser-sync start --server --files 'public/*.html, public/*.css, public/*.js, public/font/*.*, public/img/*.*'",
+    "build:html": "npm run html && npm run image && npm run font",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "build:js": "npm run browserify && npm run uglify",
+    "build": "npm run build:html & npm run build:css && npm run build:js",
+    "watch:html": "onchange '*.html' -- npm run build:html",
+    "watch:css": "onchange 'scss/*.scss' -- npm run build:css",
+    "watch:js": "onchange 'js/*.js' -- npm run build:js",
+    "watch": "parallelshell 'npm run serve' 'npm run watch:html' 'npm run watch:css' 'npm run watch:js'",
+    "ac": "git add --all && git commit -m",
+    "push": "git push origin master && git push origin gh-pages && git status",
+    "pull": "git pull origin master && git status"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jstrother/read-watch-listen.git"
+  },
+  "author": "Jim Strother",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jstrother/read-watch-listen/issues"
+  },
+  "homepage": "https://github.com/jstrother/read-watch-listen#readme",
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "velocity-animate": "^1.2.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.1",
+    "browser-sync": "^2.15.0",
+    "browserify": "^13.1.0",
+    "node-sass": "^3.9.0",
+    "normalize-scss": "^5.0.3",
+    "onchange": "^3.0.0",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^2.6.0",
+    "support-for": "^1.0.6",
+    "uglify-js": "^2.7.3"
+  }
+}
