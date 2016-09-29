@@ -26,12 +26,12 @@ $(function() {
 				console.log('result:', result);
 				var info = result.Similar.Info;
 				var results = result.Similar.Results;
-				console.log(results);
+				console.log('results:', results);
 				// show some basic info about what was searched for
 				$('#item-title').text(info[0].Name);
 				$('#item-desc').text(info[0].wTeaser);
 				// time to find something new!
-				showRecommendations('results:', results);
+				showRecommendations(results);
 			}
 		);
 	});
@@ -54,23 +54,35 @@ function makeAjaxRequest(url,params,dataType,type,done) {
 	}).done(done);
 }
 function showRecommendations(results) {
-	$.each(results, function(i, item) {
-		// clone the similar div
-		var result = $('#template').clone().removeClass('hidden');
-		result.removeAttr('id');
-		// add item title Name
-		var title = result.find('h2');
-		title.text(item.Name);
-		// add item Type
-		var type = result.find('h4');
-		type.text(item.Type);
-		// set link to wikipedia page
-		var titleLink = result.find('.similar-wiki');
-		titleLink.attr('href', item.wUrl);
-		// set link to youtube page
-		var ytLink = result.find('.similar-yTpage');
-		ytLink.attr('href', '//www.youtube.com/watch?v=' + item.yID);
-		$('#show-similar').append(result);
+	var itemList = [];
+	var type = $('#type').val();
+	var result = results[i].Type;
+	$.each(results, function(i, items) {
+		if (result === type) {
+			console.log('match:', results[i].Type, i);
+			if (!itemList.find(results[i].Name))
+			itemList.push(this);
+		}
+		else {
+			console.log('not match:', results[i].Type, i);
+		}
+		$.each(itemList, function(i, item) {	// clone the similar div
+			var newDiv = $('#template').clone().removeClass('hidden');
+			newDiv.removeAttr('id');
+			// add item title Name
+			var title = newDiv.find('h2');
+			title.text(item.Name);
+			// add item Type
+			var type = newDiv.find('h4');
+			type.text(item.Type);
+			// set link to wikipedia page
+			var titleLink = newDiv.find('.similar-wiki');
+			titleLink.attr('href', item.wUrl);
+			// set link to youtube page
+			var ytLink = newDiv.find('.similar-yTpage');
+			ytLink.attr('href', '//www.youtube.com/watch?v=' + item.yID);
+			$('#show-similar').append(newDiv);
+		});
 	});
 	$('#display').show();
 }
