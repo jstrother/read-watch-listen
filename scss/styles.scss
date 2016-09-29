@@ -51,6 +51,8 @@ main {
         @include span-columns(12);
         @include outer-container;
         display: none;
+        margin-bottom: 0;
+        padding-bottom: 3em;
         h1 {
             @include shift(0.75);
             @include span-columns(4);
@@ -61,9 +63,32 @@ main {
             @include span-columns(12);
             background: darken($bodyColor, 12.5%);
         }
+        #show-similar-header {
+            margin-top: 14em;
+            @include shift(4.6);
+        }
         #show-similar {
-            @include outer-container;
+            position: relative;
+            top: 3em;
             text-align: center;
+            margin-top: -5em;
+            margin-bottom: 3em;
+            @include outer-container;
+            .recommendation {
+                @include span-columns(4);
+                @include omega(3n);
+            }
+        }
+        #show-close-header {
+            position: relative;
+            top: 3.5em;
+            @include shift(4.6);
+        }
+        #show-close {
+            position: relative;
+            top: 3em;
+            text-align: center;
+            @include outer-container;
             .recommendation {
                 @include span-columns(4);
                 @include omega(3n);

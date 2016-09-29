@@ -252,7 +252,9 @@ main {
     max-width: 68em;
     margin-left: auto;
     margin-right: auto;
-    display: none; }
+    display: none;
+    margin-bottom: 0;
+    padding-bottom: 3em; }
     main #display:last-child {
       margin-right: 0; }
     main #display::after {
@@ -277,11 +279,18 @@ main {
       background: #a2c7b6; }
       main #display p:last-child {
         margin-right: 0; }
+    main #display #show-similar-header {
+      margin-top: 14em;
+      margin-left: 39.2371%; }
     main #display #show-similar {
+      position: relative;
+      top: 3em;
+      text-align: center;
+      margin-top: -5em;
+      margin-bottom: 3em;
       max-width: 68em;
       margin-left: auto;
-      margin-right: auto;
-      text-align: center; }
+      margin-right: auto; }
       main #display #show-similar::after {
         clear: both;
         content: "";
@@ -296,6 +305,32 @@ main {
         main #display #show-similar .recommendation:nth-child(3n) {
           margin-right: 0; }
         main #display #show-similar .recommendation:nth-child(3n+1) {
+          clear: left; }
+    main #display #show-close-header {
+      position: relative;
+      top: 3.5em;
+      margin-left: 39.2371%; }
+    main #display #show-close {
+      position: relative;
+      top: 3em;
+      text-align: center;
+      max-width: 68em;
+      margin-left: auto;
+      margin-right: auto; }
+      main #display #show-close::after {
+        clear: both;
+        content: "";
+        display: table; }
+      main #display #show-close .recommendation {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%; }
+        main #display #show-close .recommendation:last-child {
+          margin-right: 0; }
+        main #display #show-close .recommendation:nth-child(3n) {
+          margin-right: 0; }
+        main #display #show-close .recommendation:nth-child(3n+1) {
           clear: left; }
     main #display .dialog {
       max-width: 68em;

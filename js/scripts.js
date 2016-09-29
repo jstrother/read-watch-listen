@@ -76,6 +76,8 @@ function showRecommendations(results) {
 			console.log('closeList', closeList);
 		}
 	});
+	var simHeader = $('#show-similar-header').find('h3');
+	simHeader.text('Similar ' + selectedType + 's');
 	$.each(itemList, function(i, item) {
 		// clone the similar div
 		var newDiv = $('#template').clone().removeClass('hidden');
@@ -95,6 +97,25 @@ function showRecommendations(results) {
 		ytLink.attr('href', '//www.youtube.com/watch?v=' + item.yID);
 		$('#show-similar').append(newDiv);
 	});
+	$.each(closeList, function(i, item) {
+		// clone the similar div
+		var newDiv = $('#template').clone().removeClass('hidden');
+		// remove the id 'template' from new clone
+		newDiv.removeAttr('id');
+		// add item title Name
+		var title = newDiv.find('h2');
+		title.text(item.Name);
+		// add item Type
+		var type = newDiv.find('h4');
+		type.text(item.Type);
+		// set link to wikipedia page
+		var titleLink = newDiv.find('.similar-wiki');
+		titleLink.attr('href', item.wUrl);
+		// set link to youtube page
+		var ytLink = newDiv.find('.similar-yTpage');
+		ytLink.attr('href', '//www.youtube.com/watch?v=' + item.yID);
+		$('#show-close').append(newDiv);
+	});
 	$('#display').show();
 }
 function reset() {
@@ -103,5 +124,6 @@ function reset() {
 	$('#item-title').text('');
 	$('#item-desc').text('');
 	$('#show-similar').html('');
+	$('#show-close').html('');
 	$('#display').hide();
 }
