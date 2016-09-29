@@ -6,6 +6,9 @@ $(function() {
 		// The following take in what you are searching for and what type of work it is.
 		var searchTerm = $('#search-term').val();
 		var searchType = $('#type').val();
+		reset();
+		$('#search-term').attr('placeholder', searchTerm);
+		$('#type').val(searchType);
 		console.log(searchType);
 		// Passing in the parameters of the api callback
 		var params = {
@@ -55,19 +58,24 @@ function makeAjaxRequest(url,params,dataType,type,done) {
 }
 function showRecommendations(results) {
 	var itemList = [];
-	var type = $('#type').val();
-	var result = results[i].Type;
-	$.each(results, function(i, items) {
-		if (result === type) {
-			console.log('match:', results[i].Type, i);
-			if (!itemList.find(results[i].Name))
-			itemList.push(this);
+	var selectedType = $('#type').val();
+	$.each(results, function(i, item) {
+		var resultType = results[i].Type;
+		var resultName = results[i].Name;
+		if (resultType === selectedType) {
+			console.log('match:', resultType, i);
+			if (!($.inArray(resultName, itemList)))
+			console.log('resultName', resultName);
+			itemList.push(results[i]);
+			console.log('itemList', itemList);
 		}
 		else {
-			console.log('not match:', results[i].Type, i);
+			console.log('not match:', resultType, i);
 		}
-		$.each(itemList, function(i, item) {	// clone the similar div
+		$.each(itemList, function(i, item) {	
+			// clone the similar div
 			var newDiv = $('#template').clone().removeClass('hidden');
+			// remove the id 'template' from new clone
 			newDiv.removeAttr('id');
 			// add item title Name
 			var title = newDiv.find('h2');
