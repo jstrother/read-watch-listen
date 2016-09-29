@@ -58,6 +58,7 @@ function makeAjaxRequest(url,params,dataType,type,done) {
 }
 function showRecommendations(results) {
 	var itemList = [];
+	var closeList = [];
 	var selectedType = $('#type').val();
 	$.each(results, function(i, item) {
 		var resultType = results[i].Type;
@@ -71,26 +72,28 @@ function showRecommendations(results) {
 		}
 		else {
 			console.log('not match:', resultType, i);
+			closeList.push(results[i]);
+			console.log('closeList', closeList);
 		}
-		$.each(itemList, function(i, item) {	
-			// clone the similar div
-			var newDiv = $('#template').clone().removeClass('hidden');
-			// remove the id 'template' from new clone
-			newDiv.removeAttr('id');
-			// add item title Name
-			var title = newDiv.find('h2');
-			title.text(item.Name);
-			// add item Type
-			var type = newDiv.find('h4');
-			type.text(item.Type);
-			// set link to wikipedia page
-			var titleLink = newDiv.find('.similar-wiki');
-			titleLink.attr('href', item.wUrl);
-			// set link to youtube page
-			var ytLink = newDiv.find('.similar-yTpage');
-			ytLink.attr('href', '//www.youtube.com/watch?v=' + item.yID);
-			$('#show-similar').append(newDiv);
-		});
+	});
+	$.each(itemList, function(i, item) {
+		// clone the similar div
+		var newDiv = $('#template').clone().removeClass('hidden');
+		// remove the id 'template' from new clone
+		newDiv.removeAttr('id');
+		// add item title Name
+		var title = newDiv.find('h2');
+		title.text(item.Name);
+		// add item Type
+		var type = newDiv.find('h4');
+		type.text(item.Type);
+		// set link to wikipedia page
+		var titleLink = newDiv.find('.similar-wiki');
+		titleLink.attr('href', item.wUrl);
+		// set link to youtube page
+		var ytLink = newDiv.find('.similar-yTpage');
+		ytLink.attr('href', '//www.youtube.com/watch?v=' + item.yID);
+		$('#show-similar').append(newDiv);
 	});
 	$('#display').show();
 }
