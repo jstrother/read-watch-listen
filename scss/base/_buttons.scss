@@ -12,13 +12,15 @@
   font-weight: 600;
   line-height: 1;
   padding: $small-spacing $base-spacing;
+  text-align: center;
   text-decoration: none;
   transition: background-color $base-duration $base-timing;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: shade($action-color, 20%);
     color: #fff;
   }

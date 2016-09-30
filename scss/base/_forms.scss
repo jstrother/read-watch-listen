@@ -1,37 +1,37 @@
 fieldset {
-  background-color: $secondary-background-color;
-  border: $base-border;
-  margin: 0 0 $small-spacing;
-  padding: $base-spacing;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
-input, label, select {
+legend {
+  font-weight: 600;
+  margin-bottom: $small-spacing / 2;
+  padding: 0;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: $small-spacing / 2;
+}
+
+input,
+select,
+textarea {
   display: block;
   font-family: $base-font-family;
   font-size: $base-font-size;
 }
 
-label {
-  font-weight: 600;
-  margin-bottom: $small-spacing / 2;
-
-  &.required::after {
-    content: "*";
-  }
-
-  abbr {
-    display: none;
-  }
-}
-
-#{$all-text-inputs}, select[multiple=multiple] {
+#{$all-text-inputs} {
+  appearance: none;
   background-color: $base-background-color;
   border: $base-border;
   border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
   box-sizing: border-box;
-  font-family: $base-font-family;
-  font-size: $base-font-size;
   margin-bottom: $small-spacing;
   padding: $base-spacing / 3;
   transition: border-color $base-duration $base-timing;
@@ -55,32 +55,28 @@ label {
       border: $base-border;
     }
   }
+
+  &::placeholder {
+    color: tint($base-font-color, 40%);
+  }
 }
 
 textarea {
   resize: vertical;
 }
 
-input[type="search"] {
-  appearance: none;
-}
-
-input[type="checkbox"], input[type="radio"] {
+[type="checkbox"],
+[type="radio"] {
   display: inline;
   margin-right: $small-spacing / 2;
-
-  + label {
-    display: inline-block;
-  }
 }
 
-input[type="file"] {
+[type="file"] {
   margin-bottom: $small-spacing;
   width: 100%;
 }
 
 select {
-  margin-bottom: $base-spacing;
-  max-width: 100%;
-  width: auto;
+  margin-bottom: $small-spacing;
+  width: 100%;
 }
