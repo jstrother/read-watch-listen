@@ -248,7 +248,7 @@ main {
       margin-right: 0; }
   main .search-label {
     height: 3.5em; }
-    @media screen and (min-width: 366px) {
+    @media screen and (min-width: 367px) {
       main .search-label {
         height: 2em; } }
     @media screen and (min-width: 641px) {
@@ -292,6 +292,10 @@ main {
     text-align: center; }
     main #button-container:last-child {
       margin-right: 0; }
+    main #button-container #reset {
+      font-size: 0.75em;
+      background-color: #AACCBC;
+      color: #000; }
   main #display {
     float: left;
     display: block;

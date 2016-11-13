@@ -69,6 +69,11 @@ main {
         @include span-columns(4);
         @include shift(3.5);
         text-align: center;
+        #reset {
+            font-size: 0.75em;
+            background-color: #AACCBC;
+            color: #000;
+        }
     }
     #display {
         @include span-columns(12);
