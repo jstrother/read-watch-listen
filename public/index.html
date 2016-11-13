@@ -11,19 +11,17 @@
         <h1>Read/Watch/Listen</h1>
         <h3>Recommendations for Books, Music, Movies, and more</h3>
         <!--Using TasteKid API-->
-        <!--uglifyjs public/scripts.js -m -c -o public/scripts.js-->
-    <!--"babel": "babel js --out-file public/scripts.js --source-maps --minified",-->
     </header>
     <main>
         <section id="search">
             <form id="search-form">
                 <div class="search-field">
                     <div id="search-input">
-                        <label for="search-term">Enter title, artist, or author:</label>
+                        <label for="search-term" class="search-label">What do you like?</label>
                         <input type="text" name="search-term" id="search-term" autofocus>
                     </div>
                     <div id="search-type">
-                        <label for="type">Choose type of work:</label>
+                        <label for="type" class="search-label">What type was it?</label>
                         <select name="type" id="type">
                             <option value="book">Book</option>
                             <option value="author">Author</option>
