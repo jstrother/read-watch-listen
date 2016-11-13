@@ -4,6 +4,10 @@
 @import 'myVariables';
 @import 'normalize';
 
+* {
+    // border: 1px solid red;
+}
+
 .hidden {
     display: none;
 }
@@ -67,7 +71,7 @@ main {
     }
     #button-container {
         @include span-columns(4);
-        @include shift(3.5);
+        @include shift(3);
         text-align: center;
         #reset {
             font-size: 0.75em;
@@ -83,8 +87,8 @@ main {
         padding-bottom: 3em;
         h1 {
             @include shift(0.75);
-            @include span-columns(4);
             text-align: center;
+            width: 90%;
             background: darken($bodyColor, 15%);
         }
         p {
@@ -92,8 +96,12 @@ main {
             background: darken($bodyColor, 12.5%);
         }
         #show-similar-header {
-            margin-top: 14em;
-            @include shift(4.6);
+            margin-top: 17em;
+            margin-bottom: 1em;
+            width: 90%;
+            h3 {
+                text-align: center;
+            }
         }
         #show-similar {
             position: relative;
@@ -101,25 +109,46 @@ main {
             text-align: center;
             margin-top: -5em;
             margin-bottom: 3em;
-            @include outer-container;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
             .recommendation {
-                @include span-columns(4);
-                @include omega(3n);
+                margin-top: 2em;
+                width: 100%;
+                flex: 0 1 auto;
+                @include media($gtMobile) {
+                    width: 50%;
+                }
+                @include media($gtTabletP) {
+                    width: 33%;
+                }
             }
         }
         #show-close-header {
             position: relative;
-            top: 3.5em;
-            @include shift(4.6);
+            top: 2.5em;
+            width: 90%;
+            h3 {
+                text-align: center;
+            }
         }
         #show-close {
             position: relative;
             top: 3em;
             text-align: center;
-            @include outer-container;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
             .recommendation {
-                @include span-columns(4);
-                @include omega(3n);
+                margin-top: 1em;
+                width: 100%;
+                flex: 0 1 auto;
+                @include media($gtMobile) {
+                    width: 50%;
+                }
+                @include media($gtTabletP) {
+                    width: 33%;
+                }
             }
         }
         .dialog {

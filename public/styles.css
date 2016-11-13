@@ -248,13 +248,13 @@ main {
       margin-right: 0; }
   main .search-label {
     height: 3.5em; }
-    @media screen and (min-width: 367px) {
+    @media screen and (min-width: 380px) {
       main .search-label {
         height: 2em; } }
     @media screen and (min-width: 641px) {
       main .search-label {
         height: 3.5em; } }
-    @media screen and (min-width: 706px) {
+    @media screen and (min-width: 719px) {
       main .search-label {
         height: 2em; } }
   main #search-input {
@@ -288,7 +288,7 @@ main {
     display: block;
     margin-right: 2.35765%;
     width: 31.76157%;
-    margin-left: 29.85432%;
+    margin-left: 25.58941%;
     text-align: center; }
     main #button-container:last-child {
       margin-right: 0; }
@@ -315,14 +315,9 @@ main {
       display: block; }
     main #display h1 {
       margin-left: 6.39735%;
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 31.76157%;
       text-align: center;
+      width: 90%;
       background: #9ac2af; }
-      main #display h1:last-child {
-        margin-right: 0; }
     main #display p {
       float: left;
       display: block;
@@ -332,58 +327,65 @@ main {
       main #display p:last-child {
         margin-right: 0; }
     main #display #show-similar-header {
-      margin-top: 14em;
-      margin-left: 39.2371%; }
+      margin-top: 17em;
+      margin-bottom: 1em;
+      width: 90%; }
+      main #display #show-similar-header h3 {
+        text-align: center; }
     main #display #show-similar {
       position: relative;
       top: 3em;
       text-align: center;
       margin-top: -5em;
       margin-bottom: 3em;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto; }
-      main #display #show-similar::after {
-        clear: both;
-        content: "";
-        display: block; }
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
       main #display #show-similar .recommendation {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 31.76157%; }
-        main #display #show-similar .recommendation:last-child {
-          margin-right: 0; }
-        main #display #show-similar .recommendation:nth-child(3n) {
-          margin-right: 0; }
-        main #display #show-similar .recommendation:nth-child(3n+1) {
-          clear: left; }
+        margin-top: 2em;
+        width: 100%;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 1 auto;
+                flex: 0 1 auto; }
+        @media screen and (min-width: 641px) {
+          main #display #show-similar .recommendation {
+            width: 50%; } }
+        @media screen and (min-width: 769px) {
+          main #display #show-similar .recommendation {
+            width: 33%; } }
     main #display #show-close-header {
       position: relative;
-      top: 3.5em;
-      margin-left: 39.2371%; }
+      top: 2.5em;
+      width: 90%; }
+      main #display #show-close-header h3 {
+        text-align: center; }
     main #display #show-close {
       position: relative;
       top: 3em;
       text-align: center;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto; }
-      main #display #show-close::after {
-        clear: both;
-        content: "";
-        display: block; }
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
       main #display #show-close .recommendation {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 31.76157%; }
-        main #display #show-close .recommendation:last-child {
-          margin-right: 0; }
-        main #display #show-close .recommendation:nth-child(3n) {
-          margin-right: 0; }
-        main #display #show-close .recommendation:nth-child(3n+1) {
-          clear: left; }
+        margin-top: 1em;
+        width: 100%;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 1 auto;
+                flex: 0 1 auto; }
+        @media screen and (min-width: 641px) {
+          main #display #show-close .recommendation {
+            width: 50%; } }
+        @media screen and (min-width: 769px) {
+          main #display #show-close .recommendation {
+            width: 33%; } }
     main #display .dialog {
       max-width: 1200px;
       margin-left: auto;
