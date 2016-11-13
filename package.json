@@ -21,6 +21,7 @@
     "watch:js": "onchange 'js/*.js' -- npm run build:js",
     "watch": "parallelshell 'npm run serve' 'npm run watch:html' 'npm run watch:css' 'npm run watch:js'",
     "start": "npm run build && npm run watch",
+    "begin": "npm run build && npm run watch",
     "ac": "git add --all && git commit -m",
     "push": "git push origin master && git status",
     "pull": "git pull origin master && git status"
