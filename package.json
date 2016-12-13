@@ -37,8 +37,7 @@
   },
   "homepage": "https://github.com/jstrother/read-watch-listen#readme",
   "dependencies": {
-    "jquery": "^3.1.0",
-    "velocity-animate": "^1.2.3"
+    "jquery": "^3.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.1",

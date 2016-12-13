@@ -12,7 +12,6 @@
     display: none;
 }
 body {
-    @include outer-container;
     background: $bodyColor;
     * {
         padding: 0.25em;
@@ -31,11 +30,17 @@ header {
     }
 }
 main {
-    @include outer-container;
+    display: flex;
+    flex-flow: column nowrap;
     background: darken($bodyColor, 10%);
-    .search-field {
-        @include shift(3);
-        @include span-columns(6);
+    #search {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    #search-field {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
     }
     .search-label {
         height: 3.5em;
@@ -50,28 +55,21 @@ main {
         }
     }
     #search-input {
-        clear: both;
-        @include media($gtMobile) {
-            @include span-columns(3 of 6);
-            clear: left;
-        }
+        width: $searchWidth;
         #search-term {
             height: $searchHeight;
         }
     }
     #search-type {
-        clear: both;
-        @include media($gtMobile) {
-            @include span-columns(3 of 6);
-            clear: right;
-        }
+        width: $searchWidth;
         select {
             height: $searchHeight;
         }
     }
     #button-container {
-        @include span-columns(4);
-        @include shift(3);
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
         text-align: center;
         #reset {
             font-size: 0.75em;
@@ -80,82 +78,42 @@ main {
         }
     }
     #display {
-        @include span-columns(12);
-        @include outer-container;
         display: none;
         margin-bottom: 0;
         padding-bottom: 3em;
         h1 {
-            @include shift(0.75);
+            flex-grow: 1;
             text-align: center;
-            width: 90%;
             background: darken($bodyColor, 15%);
         }
         p {
-            @include span-columns(12);
             background: darken($bodyColor, 12.5%);
         }
         #show-similar-header {
-            margin-top: 17em;
-            margin-bottom: 1em;
-            width: 90%;
+            flex-grow: 1;
+            margin-top: 1em;
             h3 {
                 text-align: center;
             }
         }
         #show-similar {
-            position: relative;
-            top: 3em;
             text-align: center;
-            margin-top: -5em;
-            margin-bottom: 3em;
             display: flex;
             flex-flow: row wrap;
             justify-content: space-around;
-            .recommendation {
-                margin-top: 2em;
-                width: 100%;
-                flex: 0 1 auto;
-                @include media($gtMobile) {
-                    width: 50%;
-                }
-                @include media($gtTabletP) {
-                    width: 33%;
-                }
-            }
         }
         #show-close-header {
-            position: relative;
-            top: 2.5em;
-            width: 90%;
+            margin-top: 1.5em;
+            flex-grow: 1;
             h3 {
                 text-align: center;
             }
         }
         #show-close {
-            position: relative;
-            top: 3em;
             text-align: center;
             display: flex;
             flex-flow: row wrap;
             justify-content: space-around;
-            .recommendation {
-                margin-top: 1em;
-                width: 100%;
-                flex: 0 1 auto;
-                @include media($gtMobile) {
-                    width: 50%;
-                }
-                @include media($gtTabletP) {
-                    width: 33%;
-                }
-            }
-        }
-        .dialog {
-            @include outer-container;
-            a:first-of-type {
-                @include span-columns(9);
-            }
         }
         .similar {
             border: $similarBorder;
@@ -164,6 +122,17 @@ main {
             }
             h4 {
             background: darken($bodyColor, 12.5%);
+            }
+        }
+        .recommendation {
+            margin-top: 1em;
+            width: 100%;
+            flex: 0 1 auto;
+            @include media($gtMobile) {
+                width: 50%;
+            }
+            @include media($gtTabletP) {
+                width: 33%;
             }
         }
     }
