@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Read/Watch/Listen</title>
+    <title>What to Read Next?</title>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Read/Watch/Listen</h1>
-        <h3>Recommendations for Books, Music, Movies, and more</h3>
+        <h1>What to Read Next?</h1>
+        <h3>Book Recommendations</h3>
         <!--Using TasteKid API-->
     </header>
     <main>
@@ -17,19 +17,8 @@
             <form id="search-form">
                 <div id="search-field">
                     <div id="search-input">
-                        <label for="search-term" class="search-label">What do you like?</label>
+                        <label for="search-term" class="search-label">What have you read and liked?</label>
                         <input type="text" name="search-term" id="search-term" autofocus>
-                    </div>
-                    <div id="search-type">
-                        <label for="type" class="search-label">What type was it?</label>
-                        <select name="type" id="type">
-                            <option value="book">Book</option>
-                            <option value="author">Author</option>
-                            <option value="movie">Movie</option>
-                            <option value="show">TV Show</option>
-                            <option value="band">Musician/Band</option>
-                            <option value="game">Game</option>
-                        </select>
                     </div>
                 </div>
                 <div id="button-container">
@@ -45,22 +34,12 @@
             </div>
             <div class="similar recommendation hidden" id="template">
                 <h2></h2>
-                <h4></h4>
-                    <a href="" class="similar-wiki" target="_blank"><button class="similar-wiki-button">Wikipedia</button></a>
-                    <a href="" class="similar-yTpage" target="_blank"><button class="similar-yTpage-button">YouTube</button></a>
+                <p></p>
             </div>
             <div id="show-similar-header">
                 <h3></h3>
             </div>
-            <div id="show-similar">
-            
-            </div>
-            <div id="show-close-header">
-                <h3>other suggestions</h3>
-            </div>
-            <div id="show-close">
-                
-            </div>
+            <div id="show-similar"></div>
             <noscript>
                 <p>Please make sure your Javascript is turned on. For more information, please go to <a href="http://www.enable-javascript.com/" target="_blank">Enable Javascript</a>.</p>
             </noscript>

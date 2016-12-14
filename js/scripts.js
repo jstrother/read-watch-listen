@@ -5,19 +5,17 @@ $(function() {
 		e.preventDefault();
 		// The following take in what you are searching for and what type of work it is.
 		var searchTerm = $('#search-term').val(),
-			searchType = $('#type').val(),
+			// searchType = $('#type').val(),
 			params = {
 				q: searchTerm,
-				type: searchType,
+				type: 'book',
 				info: 1,
-				limit: 21,
+				limit: 100,
 				k: '201615-ReadWatc-D43NAQ4H',
 				callback: 'jsonp'
 			};
 		reset();
 		$('#search-term').attr('placeholder', searchTerm);
-		$('#type').val(searchType);
-		console.log(searchType);
 		// Passing in the parameters of the api callback
 		// now it's time to make the actual ajax request
 		makeAjaxRequest(
@@ -43,8 +41,45 @@ $(function() {
 		reset();
 	});
 });
+function showRecommendations(results) {
+	var itemList = [];
+	$.each(results, function(i, item) {
+		var resultType = results[i].Type,
+			resultName = results[i].Name;
+		if (resultType === 'book') {
+			console.log('match:', resultType, i);
+			if (!($.inArray(resultName, itemList)))
+			console.log('resultName', resultName);
+			itemList.push(results[i]);
+			console.log('itemList', itemList);
+		}
+	});
+	var simHeader = $('#show-similar-header').find('h3');
+	simHeader.text('Similar Books');
+	$.each(itemList, function(i, item) {
+		// clone the similar div
+		var newDiv = $('#template').clone().removeClass('hidden'),
+			title = newDiv.find('h2'),
+			description = newDiv.find('p');
+		// remove the id 'template' from new clone
+		newDiv.removeAttr('id');
+		// add item title Name
+		title.text(item.Name);
+		// use NY Times api to retrieve author's name
+		// and book review
+		$('#show-similar').append(newDiv);
+	});
+	$('#display').show();
+}
+function reset() {
+	$('#search-term').val('').focus();
+	$('#item-title').text('');
+	$('#item-desc').text('');
+	$('#show-similar').html('');
+	$('#display').hide();
+}
 function makeAjaxRequest(url,params,dataType,type,done) {
-	url = (typeof(url) == 'undefined') ? '//www.tastekid.com/api/similar' : url;
+	url = (typeof(url) == 'undefined') ? '' : url;
 	params = (typeof(params) == 'undefined') ? {} : params;
 	dataType = (typeof(dataType) == 'undefined') ? 'jsonp' : dataType;
 	type = (typeof(type) == 'undefined') ? 'GET' : type;
@@ -55,75 +90,4 @@ function makeAjaxRequest(url,params,dataType,type,done) {
     	dataType: dataType,
     	type: type
 	}).done(done);
-}
-function showRecommendations(results) {
-	var itemList = [],
-		closeList = [],
-		selectedType = $('#type').val();
-	$.each(results, function(i, item) {
-		var resultType = results[i].Type,
-			resultName = results[i].Name;
-		if (resultType === selectedType) {
-			console.log('match:', resultType, i);
-			if (!($.inArray(resultName, itemList)))
-			console.log('resultName', resultName);
-			itemList.push(results[i]);
-			console.log('itemList', itemList);
-		}
-		else {
-			console.log('not match:', resultType, i);
-			closeList.push(results[i]);
-			console.log('closeList', closeList);
-		}
-	});
-	var simHeader = $('#show-similar-header').find('h3');
-	simHeader.text('similar ' + selectedType + 's');
-	$.each(itemList, function(i, item) {
-		// clone the similar div
-		var newDiv = $('#template').clone().removeClass('hidden'),
-			title = newDiv.find('h2'),
-			type = newDiv.find('h4'),
-			titleLink = newDiv.find('.similar-wiki'),
-			ytLink = newDiv.find('.similar-yTpage');
-		// remove the id 'template' from new clone
-		newDiv.removeAttr('id');
-		// add item title Name
-		title.text(item.Name);
-		// add item Type
-		type.text(item.Type);
-		// set link to wikipedia page
-		titleLink.attr('href', item.wUrl);
-		// set link to youtube page
-		ytLink.attr('href', '//www.youtube.com/watch?v=' + item.yID);
-		$('#show-similar').append(newDiv);
-	});
-	$.each(closeList, function(i, item) {
-		// clone the similar div
-		var newDiv = $('#template').clone().removeClass('hidden'),
-			title = newDiv.find('h2'),
-			type = newDiv.find('h4'),
-			titleLink = newDiv.find('.similar-wiki'),
-			ytLink = newDiv.find('.similar-yTpage');
-		// remove the id 'template' from new clone
-		newDiv.removeAttr('id');
-		// add item title Name
-		title.text(item.Name);
-		// add item Type
-		type.text(item.Type);
-		// set link to wikipedia page
-		titleLink.attr('href', item.wUrl);
-		// set link to youtube page
-		ytLink.attr('href', '//www.youtube.com/watch?v=' + item.yID);
-		$('#show-close').append(newDiv);
-	});
-	$('#display').show();
-}
-function reset() {
-	$('#search-term').val('').focus();
-	$('#type').val('book');
-	$('#item-title').text('');
-	$('#item-desc').text('');
-	$('#show-similar').html('');
-	$('#show-close').html('');
-	$('#display').hide();
 }

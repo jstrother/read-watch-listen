@@ -259,10 +259,6 @@ main {
     width: 15em; }
     main #search-input #search-term {
       height: 2.25em; }
-  main #search-type {
-    width: 15em; }
-    main #search-type select {
-      height: 2.25em; }
   main #button-container {
     display: -webkit-box;
     display: -ms-flexbox;

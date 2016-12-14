@@ -60,12 +60,6 @@ main {
             height: $searchHeight;
         }
     }
-    #search-type {
-        width: $searchWidth;
-        select {
-            height: $searchHeight;
-        }
-    }
     #button-container {
         display: flex;
         justify-content: center;
