@@ -59,14 +59,13 @@ function showRecommendations(results) {
 	$.each(itemList, function(i, item) {
 		// clone the similar div
 		var newDiv = $('#template').clone().removeClass('hidden'),
-			title = newDiv.find('h2'),
-			description = newDiv.find('p');
+			title = newDiv.find('h2');
 		// remove the id 'template' from new clone
 		newDiv.removeAttr('id');
 		// add item title Name
 		title.text(item.Name);
 		// use NY Times api to retrieve author's name
-		// and book review
+		// and book review  (NY Times books api key: b5c044b52c6042149b21672f5f28447e)
 		$('#show-similar').append(newDiv);
 	});
 	$('#display').show();
