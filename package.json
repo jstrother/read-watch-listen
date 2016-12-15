@@ -14,7 +14,7 @@
     "serve": "browser-sync start --server --files 'public/*.html, public/*.css, public/*.js, public/font/*.*, public/img/*.*'",
     "build:html": "npm run html",
     "build:css": "npm run scss && npm run autoprefixer",
-    "build:js": "npm run browserify && npm run uglify",
+    "build:js": "npm run browserify",
     "build": "npm run build:html & npm run build:css && npm run build:js && echo 'finished & ready'",
     "watch:html": "onchange '*.html' -- npm run build:html",
     "watch:css": "onchange 'scss/*.scss' -- npm run build:css",
