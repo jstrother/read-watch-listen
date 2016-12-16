@@ -1,12 +1,11 @@
-const $ = require('jquery');
+import $ from 'jquery';
 
-$(function() {
+$(() => {
 	$('#submit').click(function(e) {
 		e.preventDefault();
 		// The following take in what you are searching for and what type of work it is.
-		var searchTerm = $('#search-term').val(),
-			// searchType = $('#type').val(),
-			params1 = {
+		let searchTerm = $('#search-term').val(),
+			params = {
 				q: searchTerm,
 				type: 'book',
 				info: 1,
@@ -20,34 +19,35 @@ $(function() {
 		// now it's time to make the actual ajax request
 		makeAjaxRequest(
 			'//www.tastekid.com/api/similar', //TasteKid API is case-sensitive.  .Name, not .name, and so on.
-			params1,
+			params,
 			'jsonp',
 			'GET',
-			function(result) {
-				var results = result.Similar.Results;
+			result => {
+				let results = result.Similar.Results;
 				// time to find something new!
 				showRecommendations(results);
 			}
 		);
 	});
-	$('#reset').click(function(e) {
+	$('#reset').click(e => {
 		e.preventDefault();
 		reset();
 	});
 });
+
 function showRecommendations(results) {
-	var itemList = [];
-	$.each(results, function(i, item) {
-		var resultType = results[i].Type;
+	let itemList = [];
+	$.each(results, (i, item) => {
+		let resultType = results[i].Type;
 		if (resultType === 'book') {
 			itemList.push(results[i]);
 		}
 	});
-	var simHeader = $('#show-similar-header').find('h3');
+	let simHeader = $('#show-similar-header').find('h3');
 	simHeader.text('Similar Books');
-	$.each(itemList, function(i, item) {
+	$.each(itemList, (i, item) => {
 		console.log('initial item:', item);
-		var params2 = {
+		let params = {
 				'api-key': 'b5c044b52c6042149b21672f5f28447e',
 				'title': item.Name
 			},
@@ -63,21 +63,22 @@ function showRecommendations(results) {
 		// make another ajax request to the NY Times api
 		makeAjaxRequest(
 			'//api.nytimes.com/svc/books/v3/reviews.jsonp',
-			params2,
+			params,
 			'jsonp',
 			'GET',
-			function(item) {
+			item => {
 				console.log('NY Times item:', item);
 				// retrieve author's name
-				author.text(item.results.book_author);
+				author.text('by ' + item.results[0].book_author);
 				// retrieve book review
-				blurb.text(item.results.summary);
+				blurb.text(item.results[0].summary);
 			}
 		);
 		$('#show-similar').append(newDiv);
 	});
 	$('#display').show();
 }
+
 function makeAjaxRequest(url,params,dataType,type,done) {
 	url = (typeof(url) == 'undefined') ? '' : url;
 	params = (typeof(params) == 'undefined') ? {} : params;
@@ -91,6 +92,7 @@ function makeAjaxRequest(url,params,dataType,type,done) {
     	type: type
 	}).done(done);
 }
+
 function reset() {
 	$('#search-term').val('').focus();
 	$('#item-title').text('');
