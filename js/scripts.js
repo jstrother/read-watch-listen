@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+// there are two API calls made.  one calls TasteKid and sends the info directly to the other, which calls Google Books.  the second call displays all info
+
 $(() => {
 	$('#submit').click(function(e) {
 		e.preventDefault();
@@ -46,32 +48,36 @@ function showRecommendations(results) {
 	let simHeader = $('#show-similar-header').find('h3');
 	simHeader.text('Similar Books');
 	$.each(itemList, (i, item) => {
-		console.log('initial item:', item);
 		let params = {
-				'api-key': 'ZplecKjUJalLTY28hKGnA',
-				'title': item.Name
+				'api-key': 'AIzaSyBNsI5sZCDK4Bv7Py29TO1Ta6auOtsardw',
+				'q': item.Name
 			},
-			newDiv = $('#template').clone().removeClass('hidden'), // clone the similar div
+			newDiv = $('#template').clone(), // clone the similar div
 			title = newDiv.find('h2'),
 			author = newDiv.find('h4'),
-			blurb = newDiv.find('p');
+			blurb = newDiv.find('a');
 			
 		// remove the id 'template' from new clone
 		newDiv.removeAttr('id');
-		// add item title Name
-		title.text(item.Name);
-		// make another ajax request to the Goodreads api
+		// make another ajax request to the Google Books api
 		makeAjaxRequest(
-			'//www.goodreads.com/book/title.xml',
+			'//www.googleapis.com/books/v1/volumes/',
 			params,
-			'xml',
+			'jsonp',
 			'GET',
 			item => {
-				console.log('Goodreads item:', item);
+				console.log('Google Books item:', item);
+				// add item title Name
+				title.text(item.items[0].volumeInfo.title);
 				// retrieve author's name
-				// author.text('by ' + item.results[0].book_author);
+				author.text(`by ${item.items[0].volumeInfo.authors[0]}`);
 				// retrieve book review
-				// blurb.text(item.results[0].summary);
+				blurb.attr('href', item.items[0].volumeInfo.infoLink);
+				// this if block makes sure that if there is an error, the div doesn't show
+				// most common error is 'exceeding usage limits' on a free api
+				if (title.length >= 1) {
+					newDiv.removeClass('hidden');
+				}
 			}
 		);
 		$('#show-similar').append(newDiv);
