@@ -95,6 +95,7 @@
 		var simHeader = (0, _jquery2.default)('#show-similar-header').find('h3');
 		simHeader.text('Similar Books');
 		_jquery2.default.each(itemList, function (i, item) {
+			// console.log('initial item:', item);
 			var params = {
 				'api-key': 'AIzaSyBNsI5sZCDK4Bv7Py29TO1Ta6auOtsardw',
 				'q': item.Name

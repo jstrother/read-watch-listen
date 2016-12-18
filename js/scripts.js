@@ -48,6 +48,7 @@ function showRecommendations(results) {
 	let simHeader = $('#show-similar-header').find('h3');
 	simHeader.text('Similar Books');
 	$.each(itemList, (i, item) => {
+		// console.log('initial item:', item);
 		let params = {
 				'api-key': 'AIzaSyBNsI5sZCDK4Bv7Py29TO1Ta6auOtsardw',
 				'q': item.Name
