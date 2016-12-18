@@ -95,7 +95,7 @@
 		_jquery2.default.each(itemList, function (i, item) {
 			console.log('initial item:', item);
 			var params = {
-				'api-key': 'b5c044b52c6042149b21672f5f28447e',
+				'api-key': 'ZplecKjUJalLTY28hKGnA',
 				'title': item.Name
 			},
 			    newDiv = (0, _jquery2.default)('#template').clone().removeClass('hidden'),
@@ -108,13 +108,13 @@
 			newDiv.removeAttr('id');
 			// add item title Name
 			title.text(item.Name);
-			// make another ajax request to the NY Times api
-			makeAjaxRequest('//api.nytimes.com/svc/books/v3/reviews.jsonp', params, 'jsonp', 'GET', function (item) {
-				console.log('NY Times item:', item);
+			// make another ajax request to the Goodreads api
+			makeAjaxRequest('//www.goodreads.com/book/title.xml', params, 'xml', 'GET', function (item) {
+				console.log('Goodreads item:', item);
 				// retrieve author's name
-				author.text('by ' + item.results[0].book_author);
+				// author.text('by ' + item.results[0].book_author);
 				// retrieve book review
-				blurb.text(item.results[0].summary);
+				// blurb.text(item.results[0].summary);
 			});
 			(0, _jquery2.default)('#show-similar').append(newDiv);
 		});
