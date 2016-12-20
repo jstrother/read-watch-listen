@@ -11,7 +11,7 @@
     "serve": "browser-sync start --server --files 'public/*.html, public/*.css, public/*.js, public/font/*.*, public/img/*.*'",
     "build:html": "npm run html",
     "build:css": "npm run scss && npm run autoprefixer",
-    "build:js": "webpack && npm run uglify",
+    "build:js": "webpack && cp js/scripts-webpack.js public/scripts.min.js",
     "build": "npm run build:html && npm run build:css && npm run build:js",
     "watch:html": "onchange '*.html' -- npm run build:html",
     "watch:css": "onchange 'scss/*.scss' -- npm run build:css",

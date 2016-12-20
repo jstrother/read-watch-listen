@@ -104,7 +104,9 @@
 			    // clone the similar div
 			title = newDiv.find('h2'),
 			    author = newDiv.find('h4'),
-			    blurb = newDiv.find('a');
+			    moreLink = newDiv.find('a'),
+			    coverImg = newDiv.find('img'),
+			    blurb = newDiv.find('p');
 	
 			// remove the id 'template' from new clone
 			newDiv.removeAttr('id');
@@ -115,8 +117,15 @@
 				title.text(item.items[0].volumeInfo.title);
 				// retrieve author's name
 				author.text('by ' + item.items[0].volumeInfo.authors[0]);
-				// retrieve book review
-				blurb.attr('href', item.items[0].volumeInfo.infoLink);
+				// get the cover image
+				coverImg.attr({
+					src: item.items[0].volumeInfo.imageLinks.smallThumbnail,
+					alt: item.items[0].volumeInfo.title + ' Cover'
+				});
+				// retrieve snippet
+				blurb.text(decodeURIComponent(item.items[0].searchInfo.textSnippet));
+				// link to full review
+				moreLink.attr('href', item.items[0].volumeInfo.infoLink);
 				// this if block makes sure that if there is an error, the div doesn't show
 				// most common error is 'exceeding usage limits' on a free api
 				if (title.length >= 1) {

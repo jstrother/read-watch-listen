@@ -96,26 +96,28 @@ main {
             flex-flow: row wrap;
             justify-content: space-around;
         }
-        #show-close-header {
-            margin-top: 1.5em;
-            flex-grow: 1;
-            h3 {
-                text-align: center;
-            }
-        }
-        #show-close {
-            text-align: center;
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-around;
-        }
         .similar {
             border: $similarBorder;
-            h2 {
-            background: darken($bodyColor, 15%);
+            flex-flow: column nowrap;
+            .similar-header {
+                display: flex;
+                flex-flow: column nowrap;
+                h2 {
+                    margin: 0;
+                    background: darken($bodyColor, 15%);
+                }
+                h4 {
+                    margin: 0;
+                    background: darken($bodyColor, 12.5%);
+                }
             }
-            h4 {
-            background: darken($bodyColor, 12.5%);
+            .similar-body {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-around;
+                p {
+                    width: 50%;
+                }
             }
         }
         .recommendation {
