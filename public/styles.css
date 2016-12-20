@@ -113,19 +113,11 @@ html {
 *::before,
 *::after {
   box-sizing: inherit; }
-<<<<<<< HEAD
 
 html,
 body {
   height: 100%; }
 
-=======
-
-html,
-body {
-  height: 100%; }
-
->>>>>>> 311b098e31f62087997185f80e314c366616c56b
 ul,
 ol {
   list-style-type: none;
@@ -216,18 +208,7 @@ html {
   display: none; }
 
 body {
-<<<<<<< HEAD
   background: #cadfd5; }
-=======
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  background: #cadfd5; }
-  body::after {
-    clear: both;
-    content: "";
-    display: block; }
->>>>>>> 311b098e31f62087997185f80e314c366616c56b
   body * {
     padding: 0.25em; }
 
@@ -242,7 +223,6 @@ header {
     margin-top: -1.5em; }
 
 main {
-<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -271,24 +251,6 @@ main {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; }
-=======
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  background: #aaccbc; }
-  main::after {
-    clear: both;
-    content: "";
-    display: block; }
-  main .search-field {
-    margin-left: 25.58941%;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
-    main .search-field:last-child {
-      margin-right: 0; }
->>>>>>> 311b098e31f62087997185f80e314c366616c56b
   main .search-label {
     height: 3.5em; }
     @media screen and (min-width: 380px) {
@@ -301,7 +263,6 @@ main {
       main .search-label {
         height: 2em; } }
   main #search-input {
-<<<<<<< HEAD
     width: 15em; }
     main #search-input #search-term {
       height: 2.25em; }
@@ -315,48 +276,11 @@ main {
     -ms-flex-flow: row wrap;
         flex-flow: row wrap;
     text-align: center; }
-=======
-    clear: both; }
-    @media screen and (min-width: 641px) {
-      main #search-input {
-        float: left;
-        display: block;
-        margin-right: 4.82916%;
-        width: 47.58542%;
-        clear: left; }
-        main #search-input:last-child {
-          margin-right: 0; } }
-    main #search-input #search-term {
-      height: 2.25em; }
-  main #search-type {
-    clear: both; }
-    @media screen and (min-width: 641px) {
-      main #search-type {
-        float: left;
-        display: block;
-        margin-right: 4.82916%;
-        width: 47.58542%;
-        clear: right; }
-        main #search-type:last-child {
-          margin-right: 0; } }
-    main #search-type select {
-      height: 2.25em; }
-  main #button-container {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 31.76157%;
-    margin-left: 25.58941%;
-    text-align: center; }
-    main #button-container:last-child {
-      margin-right: 0; }
->>>>>>> 311b098e31f62087997185f80e314c366616c56b
     main #button-container #reset {
       font-size: 0.75em;
       background-color: #AACCBC;
       color: #000; }
   main #display {
-<<<<<<< HEAD
     display: none;
     margin-bottom: 0;
     padding-bottom: 3em; }
@@ -364,51 +288,19 @@ main {
       -webkit-box-flex: 1;
           -ms-flex-positive: 1;
               flex-grow: 1;
-=======
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    display: none;
-    margin-bottom: 0;
-    padding-bottom: 3em; }
-    main #display:last-child {
-      margin-right: 0; }
-    main #display::after {
-      clear: both;
-      content: "";
-      display: block; }
-    main #display h1 {
-      margin-left: 6.39735%;
->>>>>>> 311b098e31f62087997185f80e314c366616c56b
       text-align: center;
-      width: 90%;
       background: #9ac2af; }
     main #display p {
       background: #a2c7b6; }
     main #display #show-similar-header {
-<<<<<<< HEAD
       -webkit-box-flex: 1;
           -ms-flex-positive: 1;
               flex-grow: 1;
       margin-top: 1em; }
-=======
-      margin-top: 17em;
-      margin-bottom: 1em;
-      width: 90%; }
->>>>>>> 311b098e31f62087997185f80e314c366616c56b
       main #display #show-similar-header h3 {
         text-align: center; }
     main #display #show-similar {
       text-align: center;
-<<<<<<< HEAD
-=======
-      margin-top: -5em;
-      margin-bottom: 3em;
->>>>>>> 311b098e31f62087997185f80e314c366616c56b
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -416,7 +308,6 @@ main {
           flex-flow: row wrap;
       -ms-flex-pack: distribute;
           justify-content: space-around; }
-<<<<<<< HEAD
     main #display .similar {
       border: em(2px) solid #8ab9a3;
       -ms-flex-flow: column nowrap;
@@ -458,67 +349,3 @@ main {
       @media screen and (min-width: 769px) {
         main #display .recommendation {
           width: 33%; } }
-=======
-      main #display #show-similar .recommendation {
-        margin-top: 2em;
-        width: 100%;
-        -webkit-box-flex: 0;
-            -ms-flex: 0 1 auto;
-                flex: 0 1 auto; }
-        @media screen and (min-width: 641px) {
-          main #display #show-similar .recommendation {
-            width: 50%; } }
-        @media screen and (min-width: 769px) {
-          main #display #show-similar .recommendation {
-            width: 33%; } }
-    main #display #show-close-header {
-      position: relative;
-      top: 2.5em;
-      width: 90%; }
-      main #display #show-close-header h3 {
-        text-align: center; }
-    main #display #show-close {
-      position: relative;
-      top: 3em;
-      text-align: center;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-      -ms-flex-pack: distribute;
-          justify-content: space-around; }
-      main #display #show-close .recommendation {
-        margin-top: 1em;
-        width: 100%;
-        -webkit-box-flex: 0;
-            -ms-flex: 0 1 auto;
-                flex: 0 1 auto; }
-        @media screen and (min-width: 641px) {
-          main #display #show-close .recommendation {
-            width: 50%; } }
-        @media screen and (min-width: 769px) {
-          main #display #show-close .recommendation {
-            width: 33%; } }
-    main #display .dialog {
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto; }
-      main #display .dialog::after {
-        clear: both;
-        content: "";
-        display: block; }
-      main #display .dialog a:first-of-type {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 74.41059%; }
-        main #display .dialog a:first-of-type:last-child {
-          margin-right: 0; }
-    main #display .similar {
-      border: em(2px) solid #8ab9a3; }
-      main #display .similar h2 {
-        background: #9ac2af; }
-      main #display .similar h4 {
-        background: #a2c7b6; }
->>>>>>> 311b098e31f62087997185f80e314c366616c56b
