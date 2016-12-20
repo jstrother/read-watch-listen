@@ -67,6 +67,7 @@
 				k: '201615-ReadWatc-D43NAQ4H',
 				callback: 'jsonp'
 			};
+			(0, _jquery2.default)('#search-how-to').hide();
 			reset();
 			(0, _jquery2.default)('#search-term').attr('placeholder', searchTerm);
 			// Passing in the parameters of the api callback

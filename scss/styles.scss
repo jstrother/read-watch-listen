@@ -33,6 +33,13 @@ main {
     display: flex;
     flex-flow: column nowrap;
     background: darken($bodyColor, 10%);
+    #search-how-to {
+        width: 20em;
+        align-self: center;
+        p {
+            text-align: center;
+        }
+    }
     #search {
         display: flex;
         flex-flow: column nowrap;
@@ -115,6 +122,10 @@ main {
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: space-around;
+                img {
+                    width: 8.5em;
+                    height: 12.5em;
+                }
                 p {
                     width: 50%;
                 }

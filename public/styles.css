@@ -229,6 +229,13 @@ main {
   -ms-flex-flow: column nowrap;
       flex-flow: column nowrap;
   background: #aaccbc; }
+  main #search-how-to {
+    width: 20em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center; }
+    main #search-how-to p {
+      text-align: center; }
   main #search {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -325,6 +332,9 @@ main {
             flex-flow: row wrap;
         -ms-flex-pack: distribute;
             justify-content: space-around; }
+        main #display .similar .similar-body img {
+          width: 8.5em;
+          height: 12.5em; }
         main #display .similar .similar-body p {
           width: 50%; }
     main #display .recommendation {
