@@ -208,7 +208,8 @@ html {
   display: none; }
 
 body {
-  background: #cadfd5; }
+  background: #cadfd5;
+  color: black; }
   body * {
     padding: 0.25em; }
 

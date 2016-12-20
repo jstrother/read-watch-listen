@@ -1,5 +1,6 @@
 @import 'myBreakpoints';
 
+// for some reason, the $bodyColor variable wasn't applied to the body
 $bodyColor: #cadfd5;
 $similarBorder: em(2px) solid darken($bodyColor, 20%);
 $headerH3size: 1.15em;
