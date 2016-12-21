@@ -1,8 +1,15 @@
 @import 'myBreakpoints';
 
-$bodyColor: #cadfd5;
-$similarBorder: em(2px) solid darken($bodyColor, 20%);
+$primaryColor: white;
+$headerColor: darken($primaryColor, 20%);
+$mainColor: darken($primaryColor, 10%);
+$primaryColorTransparent: rgba(255, 255, 255, 0.7);
+$mainColorTransparent: darken($primaryColorTransparent, 10%);
+$similarBorder: em(2px) solid darken($primaryColor, 20%);
 $headerH3size: 1.15em;
 $headerH1size: ($headerH3size * 0.5) + $headerH3size;
 $searchHeight: 2.25em;
-$searchWidth: 15em;
+$searchWidth: 16em;
+$sameDivWidthSmall: 16em;
+$sameDivWidthLarge: 17.75em;
+$searchGlitchOffset: 0.55em; // i think the problem this adjusts for is due to the search div displayed as flex

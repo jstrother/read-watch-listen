@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="round-corners">
         <h1>What to Read Next?</h1>
         <h3>Book Recommendations</h3>
         <!--Using TasteKid & Google Books APIs-->
     </header>
     <main>
-        <section id="search-how-to">
-            <p>It's simple: All you have to do is enter the title of a book that you have read and liked.  Once you submit it, I will look for something that you might also enjoy and give you all sorts of info about it.</p>
+        <section id="search-how-to" class="round-corners">
+            <p>It's simple: All you have to do is enter the (complete) title of a book that you have read and liked.  Once you submit it, I will look for something that you might also enjoy and give you more info about it.</p>
         </section>
         <section id="search">
-            <form id="search-form">
+            <form id="search-form" class="round-corners">
                 <div id="search-field">
                     <div id="search-input">
                         <label for="search-term" class="search-label">What have you read and liked?</label>
@@ -31,21 +31,25 @@
             </form>
         </section>
         <section id="display">
-            <div class="similar recommendation hidden" id="template">
+            <div class="similar recommendation round-corners hidden" id="template">
                 <div class="similar-header">
-                    <h2></h2>
-                    <h4></h4>
+                    <h2 class="round-corners-top"></h2>
+                    <h4 class="round-corners-bottom"></h4>
                 </div>
                 <div class="similar-body">
-                    <img src="" alt="" />
-                    <p></p>
+                    <div class="similar-main-info">
+                        <img src="" alt="" />
+                        <p></p>
+                    </div>
+                    <a href="" target="_blank">More...</a>
                 </div>
-                <a href="" target="_blank">More...</a>
             </div>
-            <div id="show-similar-header">
-                <h3></h3>
+            <div id="show-similar-whole">
+                <div id="show-similar-header" class="round-corners">
+                    <h3></h3>
+                </div>
+                <div id="show-similar"></div>
             </div>
-            <div id="show-similar"></div>
             <noscript>
                 <p>Please make sure your Javascript is turned on. For more information, please go to <a href="http://www.enable-javascript.com/" target="_blank">Enable Javascript</a>.</p>
             </noscript>

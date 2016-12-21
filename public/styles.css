@@ -207,8 +207,27 @@ html {
 .hidden {
   display: none; }
 
+.round-corners {
+  border-radius: 5px; }
+
+.round-corners-top {
+  border-radius: 5px 5px 0 0; }
+
+.round-corners-bottom {
+  border-radius: 0 0 5px 5px; }
+
 body {
-  background: #cadfd5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: url("./img/bookshelf.jpg") center fixed;
   color: black; }
   body * {
     padding: 0.25em; }
@@ -216,7 +235,11 @@ body {
 header {
   margin-top: 2em;
   text-align: center;
-  background: #8ab9a3; }
+  background: #cccccc;
+  width: 17.75em; }
+  @media screen and (max-width: 640px) {
+    header {
+      width: 16em; } }
   header h1 {
     font-size: 1.725em; }
   header h3 {
@@ -229,20 +252,38 @@ main {
   display: flex;
   -ms-flex-flow: column nowrap;
       flex-flow: column nowrap;
-  background: #aaccbc; }
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  -webkit-box-align: space-around;
+      -ms-flex-align: space-around;
+          align-items: space-around; }
   main #search-how-to {
-    width: 20em;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
-        align-self: center; }
+        align-self: center;
+    background: #e6e6e6;
+    width: 17.75em; }
+    @media screen and (max-width: 640px) {
+      main #search-how-to {
+        width: 16em; } }
     main #search-how-to p {
-      text-align: center; }
+      text-align: center;
+      margin: 0 auto; }
   main #search {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap; }
+        flex-flow: column nowrap;
+    -ms-flex-item-align: center;
+        align-self: center;
+    margin: 0;
+    width: 18.3em; }
+    @media screen and (max-width: 640px) {
+      main #search {
+        width: 16.55em; } }
+  main #search-form {
+    background: #e6e6e6; }
   main #search-field {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -253,18 +294,13 @@ main {
         -ms-flex-pack: center;
             justify-content: center; }
   main .search-label {
+    text-align: center;
     height: 3.5em; }
-    @media screen and (min-width: 380px) {
-      main .search-label {
-        height: 2em; } }
     @media screen and (min-width: 641px) {
-      main .search-label {
-        height: 3.5em; } }
-    @media screen and (min-width: 719px) {
       main .search-label {
         height: 2em; } }
   main #search-input {
-    width: 15em; }
+    width: 16em; }
     main #search-input #search-term {
       height: 2.25em; }
   main #button-container {
@@ -279,27 +315,40 @@ main {
     text-align: center; }
     main #button-container #reset {
       font-size: 0.75em;
-      background-color: #AACCBC;
+      background-color: #e6e6e6;
       color: #000; }
   main #display {
     display: none;
+    margin-top: 12em;
     margin-bottom: 0;
     padding-bottom: 3em; }
-    main #display h1 {
-      -webkit-box-flex: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1;
-      text-align: center;
-      background: #9ac2af; }
-    main #display p {
-      background: #a2c7b6; }
+    @media screen and (min-width: 641px) {
+      main #display {
+        margin-top: 10em; } }
+    main #display #show-similar-whole {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap; }
     main #display #show-similar-header {
-      -webkit-box-flex: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1;
-      margin-top: 1em; }
+      height: em(60px);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      background: #cccccc;
+      width: 17.75em; }
       main #display #show-similar-header h3 {
-        text-align: center; }
+        text-align: center;
+        margin: auto; }
     main #display #show-similar {
       text-align: center;
       display: -webkit-box;
@@ -310,9 +359,10 @@ main {
       -ms-flex-pack: distribute;
           justify-content: space-around; }
     main #display .similar {
-      border: em(2px) solid #8ab9a3;
+      border: em(2px) solid #cccccc;
       -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap; }
+          flex-flow: column nowrap;
+      background: rgba(230, 230, 230, 0.7); }
       main #display .similar .similar-header {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -321,10 +371,10 @@ main {
             flex-flow: column nowrap; }
         main #display .similar .similar-header h2 {
           margin: 0;
-          background: #9ac2af; }
+          background: #cccccc; }
         main #display .similar .similar-header h4 {
           margin: 0;
-          background: #a2c7b6; }
+          background: #d9d9d9; }
       main #display .similar .similar-body {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -333,11 +383,22 @@ main {
             flex-flow: row wrap;
         -ms-flex-pack: distribute;
             justify-content: space-around; }
-        main #display .similar .similar-body img {
-          width: 8.5em;
-          height: 12.5em; }
-        main #display .similar .similar-body p {
-          width: 50%; }
+        main #display .similar .similar-body .similar-main-info {
+          -webkit-box-ordinal-group: 2;
+              -ms-flex-order: 1;
+                  order: 1;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex; }
+          main #display .similar .similar-body .similar-main-info img {
+            width: 8.5em;
+            height: 12.5em; }
+          main #display .similar .similar-body .similar-main-info p {
+            width: 100%; }
+        main #display .similar .similar-body a {
+          -webkit-box-ordinal-group: 3;
+              -ms-flex-order: 2;
+                  order: 2; }
     main #display .recommendation {
       margin-top: 1em;
       width: 100%;

@@ -11,8 +11,22 @@
 .hidden {
     display: none;
 }
+.round-corners {
+    border-radius: 5px;
+}
+.round-corners-top {
+    border-radius: 5px 5px 0 0;
+}
+.round-corners-bottom {
+    border-radius: 0 0 5px 5px;
+}
 body {
-    background: $bodyColor;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    align-items: center;
+    
+    background: url('./img/bookshelf.jpg') center fixed;
     color: black;
     * {
         padding: 0.25em;
@@ -21,7 +35,11 @@ body {
 header {
     margin-top: 2em;
     text-align: center;
-    background: darken($bodyColor, 20%);
+    background: $headerColor;
+    width: $sameDivWidthLarge;
+    @include media($mobile) {
+        width: $sameDivWidthSmall;
+    }
     h1 {
         font-size: $headerH1size;
     }
@@ -33,17 +51,32 @@ header {
 main {
     display: flex;
     flex-flow: column nowrap;
-    background: darken($bodyColor, 10%);
+    align-content: space-around;
+    align-items: space-around;
     #search-how-to {
-        width: 20em;
         align-self: center;
+        background: $mainColor;
+        width: $sameDivWidthLarge;
+        @include media($mobile) {
+            width: $sameDivWidthSmall;
+        }
         p {
             text-align: center;
+            margin: 0 auto;
         }
     }
     #search {
         display: flex;
         flex-flow: column nowrap;
+        align-self: center;
+        margin: 0;
+        width: $sameDivWidthLarge + $searchGlitchOffset;
+        @include media($mobile) {
+            width: $sameDivWidthSmall + $searchGlitchOffset;
+        }
+    }
+    #search-form {
+        background: $mainColor;
     }
     #search-field {
         display: flex;
@@ -51,14 +84,9 @@ main {
         justify-content: center;
     }
     .search-label {
+        text-align: center;
         height: 3.5em;
-        @include media($gtSmallMidpoint) {
-            height: 2em;
-        }
         @include media($gtMobile) {
-            height: 3.5em;
-        }
-        @include media($gtMidpoint) {
             height: 2em;
         }
     }
@@ -75,27 +103,33 @@ main {
         text-align: center;
         #reset {
             font-size: 0.75em;
-            background-color: #AACCBC;
+            background-color: $mainColor;
             color: #000;
         }
     }
     #display {
         display: none;
+        margin-top: 12em;
+        @include media($gtMobile) {
+            margin-top: 10em;
+        }
         margin-bottom: 0;
         padding-bottom: 3em;
-        h1 {
-            flex-grow: 1;
-            text-align: center;
-            background: darken($bodyColor, 15%);
-        }
-        p {
-            background: darken($bodyColor, 12.5%);
+        #show-similar-whole {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            flex-flow: column nowrap;
         }
         #show-similar-header {
-            flex-grow: 1;
-            margin-top: 1em;
+            height: em(60px);
+            display: flex;
+            background: $headerColor;
+            width: $sameDivWidthLarge;
             h3 {
                 text-align: center;
+                margin: auto;
             }
         }
         #show-similar {
@@ -107,28 +141,36 @@ main {
         .similar {
             border: $similarBorder;
             flex-flow: column nowrap;
+            background: $mainColorTransparent;
             .similar-header {
                 display: flex;
                 flex-flow: column nowrap;
                 h2 {
                     margin: 0;
-                    background: darken($bodyColor, 15%);
+                    background: $headerColor;
                 }
                 h4 {
                     margin: 0;
-                    background: darken($bodyColor, 12.5%);
+                    background: darken($primaryColor, 15%);
                 }
             }
             .similar-body {
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: space-around;
-                img {
-                    width: 8.5em;
-                    height: 12.5em;
+                .similar-main-info {
+                    order: 1;
+                    display: flex;
+                    img {
+                        width: 8.5em;
+                        height: 12.5em;
+                    }
+                    p {
+                        width: 100%;
+                    }
                 }
-                p {
-                    width: 50%;
+                a {
+                    order: 2;
                 }
             }
         }
