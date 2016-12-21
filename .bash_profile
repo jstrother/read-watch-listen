@@ -67,5 +67,11 @@ alias newPages="git checkout -b gh-pages"
 # the following is an alias for singly removing a file or folder from git
 alias remove="git rm -rf $1"
 
-# the following is an alias to switch between master branch and gh-pages
+# the following is an alias to switch between branches
 alias switch="git checkout $1"
+
+# the following is an alias to switch to master branch
+alias master="switch master && status"
+
+# the following is an alias to switch to gh-pages branch
+alias ghp="switch gh-pages && status"
