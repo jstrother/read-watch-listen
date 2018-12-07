@@ -21,7 +21,7 @@ $(() => {
 		// Passing in the parameters of the api callback
 		// now it's time to make the actual ajax request
 		makeAjaxRequest(
-			'https://www.tastedive.com/api/similar', //TasteDive API is case-sensitive.  .Name, not .name, and so on.
+			'https://www.tastedive.com/api/similar/', //TasteDive API is case-sensitive.  .Name, not .name, and so on.
 			params,
 			'jsonp',
 			'GET',
