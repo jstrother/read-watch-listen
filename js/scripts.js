@@ -21,7 +21,7 @@ $(() => {
 		// Passing in the parameters of the api callback
 		// now it's time to make the actual ajax request
 		makeAjaxRequest(
-			'//www.tastedive.com/api/similar/', //TasteDive API is case-sensitive.  .Name, not .name, and so on.
+			'/www.tastedive.com/api/similar/', //TasteDive API is case-sensitive.  .Name, not .name, and so on.
 			params,
 			'jsonp',
 			'GET',
@@ -65,7 +65,7 @@ function showRecommendations(results) {
 		newDiv.removeAttr('id');
 		// make another ajax request to the Google Books api
 		makeAjaxRequest(
-			'//www.googleapis.com/books/v1/volumes/',
+			'/www.googleapis.com/books/v1/volumes/',
 			params,
 			'jsonp',
 			'GET',
