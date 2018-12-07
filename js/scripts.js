@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-// there are two API calls made.  one calls TasteKid and sends the info directly to the other, which calls Google Books.  the second call displays all info
+// there are two API calls made.  one calls TasteDive and sends the info directly to the other, which calls Google Books.  the second call displays all info
 
 $(() => {
 	$('#submit').click(function(e) {
@@ -21,7 +21,7 @@ $(() => {
 		// Passing in the parameters of the api callback
 		// now it's time to make the actual ajax request
 		makeAjaxRequest(
-			'https://www.tastekid.com/api/similar', //TasteKid API is case-sensitive.  .Name, not .name, and so on.
+			'https://www.tastedive.com/api/similar', //TasteDive API is case-sensitive.  .Name, not .name, and so on.
 			params,
 			'jsonp',
 			'GET',
@@ -103,10 +103,10 @@ function makeAjaxRequest(url,params,dataType,type,done) {
 	type = (typeof(type) == 'undefined') ? 'GET' : type;
 	done = (typeof(done) == 'undefined') ? null : done;
 	$.ajax({
-    	url: url,
+    	url,
     	data: params,
-    	dataType: dataType,
-    	type: type
+    	dataType,
+    	type
 	}).done(done);
 }
 
